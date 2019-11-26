@@ -1,0 +1,27 @@
+﻿@model SearchViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h3>@ViewBag.Test</h3>
+    <form asp-action="Index" method="post" class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <input asp-for="SearchValue" class="form-control">
+            <input class="btn btn-success" id="SearchButton" type="submit" value="Поиск"/>
+        </div>
+    </form>
+    <div class="row mt-5 mb-2">
+        @{
+            foreach (Car car in Model.getAllSearchCars)
+            {
+                @Html.Partial("AllCars", car)
+            }
+        }
+    </div>
+</body>
+</html>

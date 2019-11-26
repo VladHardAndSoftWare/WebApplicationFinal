@@ -1,0 +1,6 @@
+//строка для подключения к базе данных
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=MyDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+}

@@ -1,0 +1,16 @@
+﻿@model DetailViewModel
+
+@{
+    foreach (Car car in Model.getDetailCars)
+    {
+        <img class="img-thumbnail" height="100px" src="@car.img" alt="@car.Name" />
+        <p><b>Товар:</b> @car.Name</p>
+        <p>@car.shortDesc</p>
+        <p>@car.longDesc</p>
+        <p>Цена: @car.price.ToString("c")</p>
+        <a class="btn btn-outline-secondary" asp-controller="ShopCart"
+        asp-action="addToCart" asp-route-id="@car.id">Добавить в корзину</a>
+    }
+}
+
+
