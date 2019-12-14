@@ -11,7 +11,7 @@ namespace WebApplicationFinal.Data
             if (!content.Category.Any())
                 content.Category.AddRange(Categories.Select(c => c.Value));
 
-            if (!content.Car.Any())
+            if (!content.Product.Any())
             {
                 content.AddRange(
                     new Product

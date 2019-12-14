@@ -8,12 +8,11 @@ namespace WebApplicationFinal.Controllers
 {
     public class ShopCartController : Controller
     {
-        private readonly IAllCars _carRep;
+        private readonly IAllProduct _productRep;
         private readonly ShopCart _shopCart;
-        private readonly ShopCartItem _shopCartItem;
 
-        public ShopCartController(IAllCars carRep, ShopCart shopCart) {
-            _carRep = carRep;
+        public ShopCartController(IAllProduct productRep, ShopCart shopCart) {
+            _productRep = productRep;
             _shopCart = shopCart;
         }
 
@@ -32,19 +31,22 @@ namespace WebApplicationFinal.Controllers
 
         public RedirectToActionResult addToCart(int id)
         {
-            var item = _carRep.Cars.FirstOrDefault(i => i.id == id);
+            var item = _productRep.Product.FirstOrDefault(i => i.id == id);
             if (item != null) {
                 _shopCart.AddToCart(item);
             }
             return RedirectToAction("Index");
         }
 
-        public RedirectToActionResult removeFromCart(int id)
+        public IActionResult RemoveFromCart(int id)
         {
-            var item = _carRep.Cars.FirstOrDefault(i => i.id == id);
+            ViewBag.Title = "Test2";
+            ViewBag.Test = "Test2";
+            var item = _productRep.Product.FirstOrDefault(i => i.id == id);
             ViewBag.Title = "id: " + id;
             //_shopCart.RemoveFromCart(item);
 
+            _shopCart.RemoveFromCart(id);
             return RedirectToAction("Index");
         }
     }

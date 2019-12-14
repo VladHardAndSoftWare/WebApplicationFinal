@@ -10,10 +10,10 @@ namespace WebApplicationFinal.Controllers
 {
     public class DetailController : Controller
     {
-        private readonly IAllCars _allCars;
-        private readonly ICarsCategory _allCategories;
+        private readonly IAllProduct _allCars;
+        private readonly IProductCategory _allCategories;
 
-        public DetailController(IAllCars iAllCars, ICarsCategory iCarsCat)
+        public DetailController(IAllProduct iAllCars, IProductCategory iCarsCat)
         {
             _allCars = iAllCars;
             _allCategories = iCarsCat;
@@ -24,7 +24,7 @@ namespace WebApplicationFinal.Controllers
         {
             IEnumerable<Product> cars = null; //сюда помещаем все машины для отображения
             //проверяем пустая ли строка и если она пустая то выводим все машины
-            cars = _allCars.Cars.Where(i => i.id.Equals(id));
+            cars = _allCars.Product.Where(i => i.id.Equals(id));
 
             var carObj = new DetailViewModel
             {

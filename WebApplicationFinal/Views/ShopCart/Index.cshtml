@@ -1,14 +1,18 @@
 ﻿@model ShopCartViewModel
-<div class="container">
-    @foreach (var el in Model.ShopCart.listShopItems)
-    { 
-    <div class="alert alet-warning mt-3">
-        <b>Товар:</b> @el.car.Name<br />
-        <b>Цена:</b> @el.car.price.ToString("c")<br />
-        <a class="btn btn-danger" asp-controller="ShopCart" asp-route-id="@el.car.id" 
-           asp-action="RemoveFromCart">Удалить</a>
-    </div>
-    }
-    <hr/>
-    <a class="btn btn-danger" asp-controller="Order" asp-action="Checkout">Оплатить</a>
-</div>
+    <div class="container">
+        <div class="container">
+            <p>Привет</p>
+            <p>@ViewBag.Test</p>
+            @foreach (var el in Model.ShopCart.listShopItems)
+            {
+                <div class="alert alet-warning mt-3">
+                    <b>Товар:</b> @el.car.Name<br />
+                    <b>Цена:</b> @el.car.price.ToString("c")<br />
+                    <a class="btn btn-danger" asp-controller="ShopCart"
+                       asp-action="RemoveFromCart" asp-route-id="@el.id">Удалить</a>
+                </div>
+            }
+            <hr />
+
+            <a class="btn btn-danger" asp-controller="Order" asp-action="Checkout">Оплатить</a>
+        </div>

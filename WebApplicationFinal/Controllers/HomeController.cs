@@ -6,9 +6,9 @@ namespace WebApplicationFinal.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IAllCars _carRep;       //переменая для доступа к репозиторию со всеми товарами
+        private readonly IAllProduct _carRep;       //переменая для доступа к репозиторию со всеми товарами
 
-        public HomeController(IAllCars carRep)
+        public HomeController(IAllProduct carRep)
         {
             _carRep = carRep;                   //доступ к репозиторию со всеми товарами
         }
@@ -16,7 +16,7 @@ namespace WebApplicationFinal.Controllers
         public ViewResult Index() {
             var homeCars = new HomeViewModel
             {
-                favCars = _carRep.getFavCars  //получене популярных машин
+                favProduct = _carRep.getFavProduct  //получене популярных машин
             };
             return View(homeCars);
         }

@@ -3,9 +3,9 @@
 <h2>Лучшие товары</h2>
 <div class="row mt-5 mb-2">
     @{
-        foreach (Car car in Model.favCars)
+        foreach (Product product in Model.favProduct)
         {
-            @Html.Partial("AllCars", car)
+            @Html.Partial("AllCars", product)
         }
     }
 </div>

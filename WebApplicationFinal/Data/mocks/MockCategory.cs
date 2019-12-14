@@ -7,7 +7,7 @@ using WebApplicationFinal.Data.Models;
 
 namespace WebApplicationFinal.Data.mocks
 {
-    public class MockCategory : ICarsCategory
+    public class MockCategory : IProductCategory
     {
         public IEnumerable<Category> AllCategories
         {

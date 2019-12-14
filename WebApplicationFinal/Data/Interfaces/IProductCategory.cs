@@ -3,7 +3,7 @@ using WebApplicationFinal.Data.Models;
 
 namespace WebApplicationFinal.Data.Interfaces
 {
-     public interface ICarsCategory
+     public interface IProductCategory
     {
         IEnumerable<Category> AllCategories { get; }
     }

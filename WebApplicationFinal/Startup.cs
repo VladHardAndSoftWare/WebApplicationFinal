@@ -35,8 +35,8 @@ namespace WebApplicationFinal
             services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
             
             //передача в интерфейсы данных из БД
-            services.AddTransient<IAllCars, CarRepository>();
-            services.AddTransient<ICarsCategory, CategoryRepository>();
+            services.AddTransient<IAllProduct, ProductRepository>();
+            services.AddTransient<IProductCategory, CategoryRepository>();
             services.AddTransient<IAllOrder, OrdersRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -61,7 +61,7 @@ namespace WebApplicationFinal
             { //собственная маршрутизация
                 routes.MapRoute(name: "default", template: "{controller=Home}/{action=Index}/{id?}"); //маршруты по умолчанию
                 routes.MapRoute(name: "detailFilter", template: "Detail/action/{category?}", defaults: new { Controller = "Detail", action = "Index" });
-                routes.MapRoute(name: "categoryFilter", template: "Car/action/{category?}", defaults: new { Controller = "Car", action = "Index" });  
+                routes.MapRoute(name: "categoryFilter", template: "Product/action/{category?}", defaults: new { Controller = "Product", action = "Index" });  
             });
 
             using (var scope = app.ApplicationServices.CreateScope())

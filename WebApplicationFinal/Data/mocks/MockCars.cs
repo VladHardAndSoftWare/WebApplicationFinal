@@ -7,10 +7,10 @@ using WebApplicationFinal.Data.Models;
 
 namespace WebApplicationFinal.Data.mocks
 {
-    public class MockCars : IAllCars
+    public class MockCars : IAllProduct
     {
-        private readonly ICarsCategory _categoryCars = new MockCategory(); 
-        public IEnumerable<Product> Cars {
+        private readonly IProductCategory _categoryCars = new MockCategory(); 
+        public IEnumerable<Product> Product {
             get {
                 return new List<Product>
                 {
@@ -49,9 +49,9 @@ namespace WebApplicationFinal.Data.mocks
                 };
             }
         } 
-        public IEnumerable<Product> getFavCars { get; set;}
+        public IEnumerable<Product> getFavProduct { get; set;}
 
-        public Product getOnbjectCar(int carId)
+        public Product getOnbjectProduct(int carId)
         {
             throw new NotImplementedException();
         }

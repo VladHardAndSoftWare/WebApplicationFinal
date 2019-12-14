@@ -3,7 +3,7 @@ using WebApplicationFinal.Data.Models;
 
 namespace WebApplicationFinal.ViewModels
 {
-    public class CarListViewModel
+    public class ProductListViewModel
     {
         public IEnumerable<Product> getAllCars { get; set; }
 

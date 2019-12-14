@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using WebApplicationFinal.Data.Models;
 
 namespace WebApplicationFinal.Data.Models
 {
@@ -43,8 +44,9 @@ namespace WebApplicationFinal.Data.Models
 
         public void RemoveFromCart(int id)
         {
-            Console.WriteLine("id: " + id);
-            ShopCartItem obj = appDBContent.ShopCartItem.Find(id);
+            //Car cars = null; //сюда помещаем все машины для отображения
+            //cars = appDBContent.Car.Where(i => i..Contains(id));//сравниваем введённый текст с БД
+            var obj = appDBContent.ShopCartItem.Find(id);
             Console.WriteLine("obj: "+ obj);
             appDBContent.ShopCartItem.Remove(obj);
 

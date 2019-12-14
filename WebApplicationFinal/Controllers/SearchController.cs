@@ -9,10 +9,10 @@ namespace WebApplicationFinal.Controllers
 {
     public class SearchController : Controller
     {
-        private readonly IAllCars _allCars;
-        private readonly ICarsCategory _allCategories;
+        private readonly IAllProduct _allCars;
+        private readonly IProductCategory _allCategories;
 
-        public SearchController(IAllCars iAllCars, ICarsCategory iCarsCat)
+        public SearchController(IAllProduct iAllCars, IProductCategory iCarsCat)
         {
             _allCars = iAllCars;
             _allCategories = iCarsCat;
@@ -21,7 +21,7 @@ namespace WebApplicationFinal.Controllers
         public ActionResult Index()
         {
             IEnumerable<Product> cars = null; //сюда помещаем все машины для отображения
-            cars = _allCars.Cars.OrderBy(i => i.id);
+            cars = _allCars.Product.OrderBy(i => i.id);
 
             var carObj = new SearchViewModel
             {
@@ -35,13 +35,13 @@ namespace WebApplicationFinal.Controllers
         [HttpPost]
         public ActionResult Index(SearchViewModel search)
         {
-            string searchName = "";
+            string searchName = search.SearchValue;
             if (search.SearchValue != null)
             {
                 searchName = search.SearchValue.ToLower();
             }
             IEnumerable<Product> cars = null; //сюда помещаем все машины для отображения
-            cars = _allCars.Cars.Where(i => i.Name.ToLower().Contains(searchName)).OrderBy(i => i.id);//сравниваем введённый текст с БД
+            cars = _allCars.Product.Where(i => i.Name.ToLower().Contains(searchName)).OrderBy(i => i.id);//сравниваем введённый текст с БД
             //создаем объект для представления и SearchViewModel
             var carObj = new SearchViewModel
             {
