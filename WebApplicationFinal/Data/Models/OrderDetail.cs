@@ -8,7 +8,7 @@ namespace WebApplicationFinal.Data.Models
         public int orderID { get; set; }
         public int CarID { get; set; }
         public uint price { get; set; }
-        public virtual Car car { get; set; }
+        public virtual Product car { get; set; }
         public virtual Order order { get; set; }
     }
 }

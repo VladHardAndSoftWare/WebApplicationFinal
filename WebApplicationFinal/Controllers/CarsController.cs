@@ -24,7 +24,7 @@ namespace WebApplicationFinal.Controllers
         public ViewResult List(string category/*третий параметр в адресной строке*/) {
 
             string _category = category;
-            IEnumerable<Car> cars = null; //сюда помещаем все машины для отображения
+            IEnumerable<Product> cars = null; //сюда помещаем все машины для отображения
             string currCategory = "";
             //проверяем пустая ли строка и если она пустая то выводим все машины
             if (string.Equals("all", category, StringComparison.OrdinalIgnoreCase/*не учитвыаем регистр*/))

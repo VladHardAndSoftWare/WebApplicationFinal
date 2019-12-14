@@ -22,7 +22,7 @@ namespace WebApplicationFinal.Controllers
         [Route("/detail/index/")]
         public ViewResult Index(int id/*третий параметр в адресной строке*/)
         {
-            IEnumerable<Car> cars = null; //сюда помещаем все машины для отображения
+            IEnumerable<Product> cars = null; //сюда помещаем все машины для отображения
             //проверяем пустая ли строка и если она пустая то выводим все машины
             cars = _allCars.Cars.Where(i => i.id.Equals(id));
 

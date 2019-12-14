@@ -14,7 +14,7 @@ namespace WebApplicationFinal.Data
             if (!content.Car.Any())
             {
                 content.AddRange(
-                    new Car
+                    new Product
                     {
                         Name = "Кружка 'В Питере - пить'",
                         shortDesc = "",
@@ -25,7 +25,7 @@ namespace WebApplicationFinal.Data
                         availiible = true,
                         Category = Categories["Электромобили"]
                     },
-                     new Car
+                     new Product
                      {
                          Name = "Tesla",
                          shortDesc = "",
@@ -36,7 +36,7 @@ namespace WebApplicationFinal.Data
                          availiible = true,
                          Category = Categories["Электромобили"]
                      },
-                      new Car
+                      new Product
                       {
                           Name = "Tesla",
                           shortDesc = "",

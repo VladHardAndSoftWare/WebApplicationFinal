@@ -1,6 +1,6 @@
 ﻿namespace WebApplicationFinal.Data.Models
 {
-    public class Car
+    public class Product
     {
         public int id { set; get; }
         public string Name { set; get; }

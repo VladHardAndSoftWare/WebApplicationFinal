@@ -8,7 +8,7 @@ namespace WebApplicationFinal.ViewModels
 {
     public class DetailViewModel
     {
-        public IEnumerable<Car> getDetailCars { get; set; }
-        public Car Car { get; set; }
+        public IEnumerable<Product> getDetailCars { get; set; }
+        public Product Car { get; set; }
     }
 }

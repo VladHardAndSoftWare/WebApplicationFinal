@@ -6,7 +6,7 @@
         <b>Товар:</b> @el.car.Name<br />
         <b>Цена:</b> @el.car.price.ToString("c")<br />
         <a class="btn btn-danger" asp-controller="ShopCart" asp-route-id="@el.car.id" 
-           asp-action="removeFromCart">Удалить</a>
+           asp-action="RemoveFromCart">Удалить</a>
     </div>
     }
     <hr/>

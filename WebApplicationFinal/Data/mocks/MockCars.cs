@@ -10,11 +10,11 @@ namespace WebApplicationFinal.Data.mocks
     public class MockCars : IAllCars
     {
         private readonly ICarsCategory _categoryCars = new MockCategory(); 
-        public IEnumerable<Car> Cars {
+        public IEnumerable<Product> Cars {
             get {
-                return new List<Car>
+                return new List<Product>
                 {
-                    new Car {  
+                    new Product {  
                         Name = "Tesla",
                         shortDesc="",
                         longDesc="",
@@ -24,7 +24,7 @@ namespace WebApplicationFinal.Data.mocks
                         availiible=true,
                         Category=_categoryCars.AllCategories.First()
                     },
-                     new Car
+                     new Product
                      {
                         Name = "Tesla",
                         shortDesc = "",
@@ -35,7 +35,7 @@ namespace WebApplicationFinal.Data.mocks
                         availiible = true,
                         Category = _categoryCars.AllCategories.First()
                      },
-                      new Car
+                      new Product
                      {
                         Name = "Tesla",
                         shortDesc = "",
@@ -49,9 +49,9 @@ namespace WebApplicationFinal.Data.mocks
                 };
             }
         } 
-        public IEnumerable<Car> getFavCars { get; set;}
+        public IEnumerable<Product> getFavCars { get; set;}
 
-        public Car getOnbjectCar(int carId)
+        public Product getOnbjectCar(int carId)
         {
             throw new NotImplementedException();
         }

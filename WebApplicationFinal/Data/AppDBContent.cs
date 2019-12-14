@@ -10,7 +10,7 @@ namespace WebApplicationFinal.Data
         
         }
         //Получение и установка всех товаров в магазине из базы данных
-        public DbSet<Car> Car { get; set; }
+        public DbSet<Product> Car { get; set; }
         //Получение и установка всех категорий в магазине из базы данных
         public DbSet<Category> Category { get; set; }
         public DbSet<ShopCartItem> ShopCartItem { get; set; }

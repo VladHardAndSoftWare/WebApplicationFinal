@@ -29,7 +29,7 @@ namespace WebApplicationFinal.Data.Models
             return new ShopCart(context) { ShopCartId = shopCartId };
         }
         //функия отвечает за добавление товаров в корзину
-        public void AddToCart(Car car) {
+        public void AddToCart(Product car) {
             appDBContent.ShopCartItem.Add(new ShopCartItem
             {
                 ShopCartId = ShopCartId,
@@ -46,7 +46,6 @@ namespace WebApplicationFinal.Data.Models
             Console.WriteLine("id: " + id);
             ShopCartItem obj = appDBContent.ShopCartItem.Find(id);
             Console.WriteLine("obj: "+ obj);
-
             appDBContent.ShopCartItem.Remove(obj);
 
             appDBContent.SaveChanges();

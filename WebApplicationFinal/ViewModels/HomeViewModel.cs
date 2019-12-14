@@ -7,6 +7,6 @@ namespace WebApplicationFinal.ViewModels
     {
         //internal IEnumerable<Car> favCars;
 
-        public IEnumerable<Car> favCars { get; set; }
+        public IEnumerable<Product> favCars { get; set; }
     }
 }

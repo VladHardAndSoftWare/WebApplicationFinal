@@ -13,11 +13,11 @@ namespace WebApplicationFinal.Data.Repository
         public CarRepository(AppDBContent appDBContent) {
             this.appDBContent = appDBContent;
         }
-        public IEnumerable<Car> Cars => appDBContent.Car.Include(c => c.Category);
+        public IEnumerable<Product> Cars => appDBContent.Car.Include(c => c.Category);
 
-        public IEnumerable<Car> getFavCars => appDBContent.Car.Where(p => p.isFavorite).Include(c => c.Category);
+        public IEnumerable<Product> getFavCars => appDBContent.Car.Where(p => p.isFavorite).Include(c => c.Category);
 
-        public Car getOnbjectCar(int carId) => appDBContent.Car.FirstOrDefault(p => p.id == carId);
+        public Product getOnbjectCar(int carId) => appDBContent.Car.FirstOrDefault(p => p.id == carId);
 
     }
 }

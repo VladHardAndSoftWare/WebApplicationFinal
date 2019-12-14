@@ -17,7 +17,7 @@
     </form>
     <div class="row mt-5 mb-2">
         @{
-            foreach (Car car in Model.getAllSearchCars)
+            foreach (Product car in Model.getAllSearchCars)
             {
                 @Html.Partial("AllCars", car)
             }

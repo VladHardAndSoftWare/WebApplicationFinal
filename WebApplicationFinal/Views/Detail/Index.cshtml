@@ -1,7 +1,7 @@
 ﻿@model DetailViewModel
 
 @{
-    foreach (Car car in Model.getDetailCars)
+    foreach (Product car in Model.getDetailCars)
     {
         <img class="img-thumbnail" height="100px" src="@car.img" alt="@car.Name" />
         <p><b>Товар:</b> @car.Name</p>

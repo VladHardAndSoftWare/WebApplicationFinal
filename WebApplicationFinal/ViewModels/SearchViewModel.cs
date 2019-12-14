@@ -8,7 +8,7 @@ namespace WebApplicationFinal.ViewModels
 {
     public class SearchViewModel
     {
-        public IEnumerable<Car> getAllSearchCars { get; set; }
+        public IEnumerable<Product> getAllSearchCars { get; set; }
         public string SearchValue { get; set; }
     }
 }

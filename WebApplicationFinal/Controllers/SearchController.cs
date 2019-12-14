@@ -20,7 +20,7 @@ namespace WebApplicationFinal.Controllers
         //функция при открытии сайта
         public ActionResult Index()
         {
-            IEnumerable<Car> cars = null; //сюда помещаем все машины для отображения
+            IEnumerable<Product> cars = null; //сюда помещаем все машины для отображения
             cars = _allCars.Cars.OrderBy(i => i.id);
 
             var carObj = new SearchViewModel
@@ -40,7 +40,7 @@ namespace WebApplicationFinal.Controllers
             {
                 searchName = search.SearchValue.ToLower();
             }
-            IEnumerable<Car> cars = null; //сюда помещаем все машины для отображения
+            IEnumerable<Product> cars = null; //сюда помещаем все машины для отображения
             cars = _allCars.Cars.Where(i => i.Name.ToLower().Contains(searchName)).OrderBy(i => i.id);//сравниваем введённый текст с БД
             //создаем объект для представления и SearchViewModel
             var carObj = new SearchViewModel
