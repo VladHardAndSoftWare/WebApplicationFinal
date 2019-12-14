@@ -30,11 +30,7 @@ namespace WebApplicationFinal.Controllers
             {
                 getDetailCars = cars,
             };
-
-
             return View(carObj);
-
         }
-
     }
 }

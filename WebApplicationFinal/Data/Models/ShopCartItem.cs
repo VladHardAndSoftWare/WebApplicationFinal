@@ -1,6 +1,4 @@
-﻿
-
-namespace WebApplicationFinal.Data.Models
+﻿namespace WebApplicationFinal.Data.Models
 {
     public class ShopCartItem
     {
