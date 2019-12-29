@@ -18,6 +18,7 @@ namespace WebApplicationFinal.Controllers
 
         public ViewResult Index()
         {
+            ViewBag.Title = "Корзина - Енот и Панда";
             var items = _shopCart.getShopItems();
             _shopCart.listShopItems = items;
 
@@ -40,12 +41,8 @@ namespace WebApplicationFinal.Controllers
 
         public IActionResult RemoveFromCart(int id)
         {
-            ViewBag.Title = "Test2";
-            ViewBag.Test = "Test2";
             var item = _productRep.Product.FirstOrDefault(i => i.id == id);
             ViewBag.Title = "id: " + id;
-            //_shopCart.RemoveFromCart(item);
-
             _shopCart.RemoveFromCart(id);
             return RedirectToAction("Index");
         }

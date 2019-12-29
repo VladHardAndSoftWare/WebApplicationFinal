@@ -17,6 +17,7 @@ namespace WebApplicationFinal.Controllers
 
         public IActionResult Checkout()
         {
+            ViewBag.Title = "Оформление заказа - Енот и Панда";
             return View();
         }
 
@@ -30,7 +31,7 @@ namespace WebApplicationFinal.Controllers
             }
             if (ModelState.IsValid) {// если все поля верны и прошли про верку то выполняем это условие
                 allOrders.createOrder(order);//создание заказа если товары есть в корзине
-                return RedirectToAction("Complete");
+                return RedirectToAction("Успешно");
             }
             return View(order);
 

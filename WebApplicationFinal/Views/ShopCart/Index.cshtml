@@ -1,7 +1,7 @@
 ﻿@model ShopCartViewModel
     <div class="container">
         <div class="container">
-            <p>@ViewBag.Test</p>
+            @{ int sum = 0; }
             @foreach (var el in Model.ShopCart.listShopItems)
             {
                 <div class="alert alet-warning mt-3">
@@ -10,8 +10,9 @@
                     <a class="btn btn-danger" asp-controller="ShopCart"
                        asp-action="RemoveFromCart" asp-route-id="@el.id">Удалить</a>
                 </div>
+               sum += el.car.price;
             }
             <hr />
-
+            <b>Итог:</b> @sum<br />
             <a class="btn btn-danger" asp-controller="Order" asp-action="Checkout">Оплатить</a>
         </div>

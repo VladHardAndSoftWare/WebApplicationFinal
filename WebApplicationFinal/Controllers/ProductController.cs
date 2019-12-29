@@ -30,6 +30,7 @@ namespace WebApplicationFinal.Controllers
             if (string.Equals("all", category, StringComparison.OrdinalIgnoreCase/*не учитвыаем регистр*/))
             {
                 cars = _allProduct.Product.OrderBy(i => i.id);
+                ViewBag.Title = "Страница с товарами";
             }
             else
             { //иначе разбиваем на категории
@@ -37,21 +38,25 @@ namespace WebApplicationFinal.Controllers
                 {
                     cars = _allProduct.Product.Where(i => i.Category.categoryName.Equals("Кружки")).OrderBy(i => i.id); // здесь записываем все машины из этой категории
                     currCategory = "Кружки";//заполняем заголовок
+                    ViewBag.Title = "Кружки - Енот и Панда";
                 }
                 else if (string.Equals("glider", category, StringComparison.OrdinalIgnoreCase/*не учитвыаем регистр*/))
                 {
                     cars = _allProduct.Product.Where(i => i.Category.categoryName.Equals("Планеры")).OrderBy(i => i.id);
-                    currCategory = "Планеры"; //заполняем загловок               
+                    currCategory = "Планеры"; //заполняем загловок 
+                    ViewBag.Title = "Планеры - Енот и Панда";
                 }
                 else if (string.Equals("mask", category, StringComparison.OrdinalIgnoreCase/*не учитвыаем регистр*/))
                 {
                     cars = _allProduct.Product.Where(i => i.Category.categoryName.Equals("Маски")).OrderBy(i => i.id);
-                    currCategory = "Маски"; //заполняем загловок               
+                    currCategory = "Маски"; //заполняем загловок   
+                    ViewBag.Title = "Маски - Енот и Панда";
                 }
                 else if (string.Equals("notebook", category, StringComparison.OrdinalIgnoreCase/*не учитвыаем регистр*/))
                 {
                     cars = _allProduct.Product.Where(i => i.Category.categoryName.Equals("Блокноты")).OrderBy(i => i.id);
-                    currCategory = "Блокноты"; //заполняем загловок               
+                    currCategory = "Блокноты"; //заполняем загловок    
+                    ViewBag.Title = "Блокноты - Енот и Панда";
                 }
             }
 
@@ -61,7 +66,6 @@ namespace WebApplicationFinal.Controllers
                 currCategory = currCategory
             };
 
-            ViewBag.Title = "Страница с товарами";
             return View(carObj);
         }
     }

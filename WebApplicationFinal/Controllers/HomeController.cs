@@ -14,6 +14,7 @@ namespace WebApplicationFinal.Controllers
         }
         //возвращение шаблона
         public ViewResult Index() {
+            ViewBag.Title = "Лучшие товары - Енот и Панда";
             var homeCars = new HomeViewModel
             {
                 favProduct = _carRep.getFavProduct  //получене популярных машин

@@ -4,13 +4,13 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="~/css/StyleSheet.css">
+    <link type="text/css" rel="stylesheet" href="~/css/StyleSheet.css">
 </head>
 <body>
     @*менюшка*@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/img/Logo.png" height="50px">Енот и панда</a>
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/img/Logo.png" height="50px">Енот и Панда</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="navbarsExample07">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" asp-controller="Product" asp-action="list" asp-route-category="all" >Все товары</a>
+                        <a class="nav-link" asp-controller="Product" asp-action="list" asp-route-category="all">Все товары</a>
                     </li>
                     <li class="nav-item dropdown show">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown07" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">Категории</a>
