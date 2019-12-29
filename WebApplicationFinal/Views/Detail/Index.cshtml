@@ -3,13 +3,21 @@
 @{
     foreach (Product car in Model.getDetailCars)
     {
-        <img class="img-thumbnail" height="100px" src="@car.img" alt="@car.Name" />
-        <p><b>Товар:</b> @car.Name</p>
-        <p>@car.shortDesc</p>
-        <p>@car.longDesc</p>
-        <p>Цена: @car.price.ToString("c")</p>
-        <a class="btn btn-outline-secondary" asp-controller="ShopCart"
-        asp-action="addToCart" asp-route-id="@car.id">Добавить в корзину</a>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-6 wow fadeInUp">
+                <img class="img-thumbnail" height="100px" src="@car.img" alt="@car.Name" />
+            </div>
+            <div class="col-md-6">
+                <h3 class="section-heading">@car.Name</h3>
+                <p>@car.shortDesc</p>
+                <p>@car.longDesc</p>
+                <p>Цена: @car.price.ToString("c")</p>
+                <a class="btn btn-outline-secondary" asp-controller="ShopCart"
+                   asp-action="addToCart" asp-route-id="@car.id">Добавить в корзину</a>
+            </div>
+        </div>
     }
 }
 

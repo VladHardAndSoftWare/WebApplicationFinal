@@ -5,4 +5,17 @@
     margin: 1%;
 }
 
+/*для описания товара для заголовка*/
+.section-heading {
+    margin: 0;
+    padding: 10px 30px;
+    text-transform: uppercase;
+    font-size: 2.4rem;
+    font-weight: 500;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    color: #000;
+    border: 3px solid #000;
+}
 
