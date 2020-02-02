@@ -1,8 +1,7 @@
-﻿<h2>Все Товары</h2>
-<h3>@Model.currCategory</h3>
+﻿<br><h2 class="Rsection-category"> @Model.currCategory</h2>
 <div class="row mt-5 mb-2">
     @{
-        foreach (Product car in Model.getAllCars)
+        foreach (Product car in Model.getAllCar)
         {
             @Html.Partial("AllCars", car)
         }

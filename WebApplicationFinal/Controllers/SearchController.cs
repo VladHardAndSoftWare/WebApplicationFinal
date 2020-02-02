@@ -28,7 +28,7 @@ namespace WebApplicationFinal.Controllers
                 getAllSearchCars = cars
             };
 
-            ViewBag.Title = "Поиск";
+            ViewBag.Title = "Поиск - Енот и Пандаы";
             return View(carObj);
         }
         //функция выполняемая при поиске товаров

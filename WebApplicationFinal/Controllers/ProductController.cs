@@ -30,7 +30,7 @@ namespace WebApplicationFinal.Controllers
             if (string.Equals("all", category, StringComparison.OrdinalIgnoreCase/*не учитвыаем регистр*/))
             {
                 cars = _allProduct.Product.OrderBy(i => i.id);
-                ViewBag.Title = "Страница с товарами";
+                ViewBag.Title = "Страница с товарами - Енот и Панда";
             }
             else
             { //иначе разбиваем на категории
@@ -62,7 +62,7 @@ namespace WebApplicationFinal.Controllers
 
             var carObj = new ProductListViewModel
             {
-                getAllCars = cars,
+                getAllCar = cars,
                 currCategory = currCategory
             };
 
