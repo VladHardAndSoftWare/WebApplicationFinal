@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace WebApplicationFinal.Data.Models
 {
     public class Order
@@ -42,5 +43,8 @@ namespace WebApplicationFinal.Data.Models
         public DateTime orderTime { get; set; }
 
         public List<OrderDetail> orderDetails { get; set; }
+
+        
     }
+
 }

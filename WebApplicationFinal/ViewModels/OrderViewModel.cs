@@ -3,12 +3,11 @@ using WebApplicationFinal.Data.Models;
 
 namespace WebApplicationFinal.ViewModels
 {
-    public class ProductListViewModel
+    public class OrderViewModel
     {
-        public IEnumerable<Product> getAllCar { get; set; }
-
-        public string currCategory { get; set; }
-
         public SearchViewModel SearchViewModel { get; set; }
+        public Order Order { get; set; }
+        
+
     }
 }

@@ -1,5 +1,9 @@
 ﻿@model DetailViewModel
 
+@section NavBar {
+    @Html.Partial("NavBar", Model.SearchViewModel)
+}
+
 @{
     foreach (Product car in Model.getDetailCars)
     {
@@ -20,5 +24,6 @@
         </div>
     }
 }
+
 
 

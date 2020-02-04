@@ -1,11 +1,16 @@
 ﻿@model HomeViewModel
-<br>
-<h2 class="Rsection-category">Лучшие товары</h2>
-<div class="row mt-5 mb-2">
-    @{
-        foreach (Product product in Model.favProduct)
-        {
-            @Html.Partial("AllCars", product)
+
+@section NavBar {
+    @Html.Partial("NavBar", Model.SearchViewModel)
+}
+    <br>
+    <h2 class="Rsection-category">Лучшие товары</h2>
+    <div class="row mt-5 mb-2">
+        @{
+            foreach (Product product in Model.favProduct)
+            {
+                @Html.Partial("AllCars", product)
+            }
         }
-    }
-</div>
+    </div>
+

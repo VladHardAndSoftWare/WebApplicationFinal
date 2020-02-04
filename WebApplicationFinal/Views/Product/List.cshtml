@@ -1,4 +1,10 @@
-﻿<br><h2 class="Rsection-category"> @Model.currCategory</h2>
+﻿@model ProductListViewModel
+
+@section NavBar {
+    @Html.Partial("NavBar", Model.SearchViewModel)
+}
+<br>
+<h2 class="Rsection-category"> @Model.currCategory</h2>
 <div class="row mt-5 mb-2">
     @{
         foreach (Product car in Model.getAllCar)

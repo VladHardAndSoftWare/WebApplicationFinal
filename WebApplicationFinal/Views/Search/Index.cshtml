@@ -1,7 +1,10 @@
 ﻿@model SearchViewModel
 
-<!DOCTYPE html>
+@section NavBar {
+    @Html.Partial("NavBar", Model.SearchValue)
+}
 
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
@@ -17,13 +20,13 @@
     </div>
 
 
-        <div class="row mt-5 mb-2">
-            @{
-                foreach (Product car in Model.getAllSearchCars)
-                {
-                    @Html.Partial("AllCars", car)
-                }
+    <div class="row mt-5 mb-2">
+        @{
+            foreach (Product car in Model.getAllSearchCars)
+            {
+                @Html.Partial("AllCars", car)
             }
-        </div>
+        }
+    </div>
 </body>
 </html>

@@ -1,1 +1,7 @@
-﻿<h3>@ViewBag.Message</h3>
+﻿@model HomeViewModel
+
+@section NavBar {
+    @Html.Partial("NavBar", Model.SearchViewModel)
+}
+
+<h3>@ViewBag.Message</h3>

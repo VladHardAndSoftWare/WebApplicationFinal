@@ -1,44 +1,49 @@
-﻿@model Order
+﻿@model OrderViewModel
+
+@section NavBar {
+    @Html.Partial("NavBar", Model.SearchViewModel)
+}
 
 <div class="col-3">
     <h3>Оформление заказа</h3>
     <br>
     <form asp-action="Checkout" method="post" class="form-horizontal">
         <div class="form-group">
-            <label asp-for="name"></label>
+            <label asp-for="Order.name"></label>
             <div class="col-12">
-                <input asp-for="name" class="form-control" />
-                <span asp-validation-for="name" class="text-danger"></span>
+                <input asp-for="Order.name" class="form-control" />
+                <span asp-validation-for="Order.name" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="surname"></label>
+            <label asp-for="Order.surname"></label>
             <div class="col-12">
-                <input asp-for="surname" class="form-control" />
-                <span asp-validation-for="surname" class="text-danger"></span>
+                <input asp-for="Order.surname" class="form-control" />
+                <span asp-validation-for="Order.surname" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="adress"></label>
+            <label asp-for="Order.adress"></label>
             <div class="col-12">
-                <input asp-for="adress" class="form-control" />
-                <span asp-validation-for="adress" class="text-danger"></span>
+                <input asp-for="Order.adress" class="form-control" />
+                <span asp-validation-for="Order.adress" class="text-danger"></span>
             </div>
         </div>
         <div class="form-group">
-            <label asp-for="phone"></label>
+            <label asp-for="Order.phone"></label>
             <div class="col-12">
-                <input asp-for="phone" class="form-control" />
-                <span asp-validation-for="phone" class="text-danger"></span>
+                <input asp-for="Order.phone" class="form-control" />
+                <span asp-validation-for="Order.phone" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="email"></label>
+                <label asp-for="Order.email"></label>
                 <div class="col-12">
-                    <input asp-for="email" class="form-control" />
-                    <span asp-validation-for="email" class="text-danger"></span>
+                    <input asp-for="Order.email" class="form-control" />
+                    <span asp-validation-for="Order.email" class="text-danger"></span>
                 </div>
             </div>
         </div>
         <input class="btn btn-success" type="submit" value="Завершить заказ" />
     </form>
 </div>
+

@@ -46,5 +46,6 @@ namespace WebApplicationFinal.Controllers
             _shopCart.RemoveFromCart(id);
             return RedirectToAction("Index");
         }
+
     }
 }

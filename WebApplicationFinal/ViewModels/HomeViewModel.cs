@@ -8,5 +8,8 @@ namespace WebApplicationFinal.ViewModels
         //internal IEnumerable<Car> favCars;
 
         public IEnumerable<Product> favProduct { get; set; }
+
+        public SearchViewModel SearchViewModel { get; set; }
+
     }
 }
