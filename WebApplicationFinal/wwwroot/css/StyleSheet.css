@@ -31,4 +31,10 @@
     text-align: center !important;
     font-style: normal;
 }
-
+/*Корзина*/
+.basket {
+    color: #999c9f;
+}
+    .basket:hover {
+        color: #ebffff;
+    }

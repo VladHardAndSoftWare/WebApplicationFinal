@@ -33,7 +33,8 @@ namespace WebApplicationFinal.Controllers
         public RedirectToActionResult addToCart(int id)
         {
             var item = _productRep.Product.FirstOrDefault(i => i.id == id);
-            if (item != null) {
+            if (item != null)
+            {
                 _shopCart.AddToCart(item);
             }
             return RedirectToAction("Index");

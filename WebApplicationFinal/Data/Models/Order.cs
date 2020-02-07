@@ -8,6 +8,7 @@ namespace WebApplicationFinal.Data.Models
 {
     public class Order
     {
+
         [BindNever]//не показывать поле на странице
         public int id { get; set; }
 

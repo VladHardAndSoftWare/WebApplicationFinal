@@ -4,26 +4,28 @@
     @Html.Partial("NavBar", Model.SearchViewModel)
 }
 
-<div class="container">
-    @{ int sum = 0; }
-    @foreach (var el in Model.ShopCart.listShopItems)
-    {
-        <br>
-        <div class="row">
-            <div class="col-md-auto">
-                <img height="100px" src="@el.car.img" alt="@el.car.Name" />
-            </div>
-            <div class="col-sm">
-                <b>Товар:</b> @el.car.Name<br />
+    <div class="container">
+        @{ int sum = 0; int CourtCount = 0;}
+        @foreach (var el in Model.ShopCart.listShopItems)
+        {
+            <br>
+            <div class="row">
+                <div class="col-md-auto">
+                    <img height="100px" src="@el.car.img" alt="@el.car.Name" />
+                </div>
+                <div class="col-sm">
+                    <b>Товар:</b> @el.car.Name<br />
 
-                <b>Цена:</b> @el.car.price.ToString("c")<br />
-                <a class="btn btn-danger" asp-controller="ShopCart"
-                   asp-action="RemoveFromCart" asp-route-id="@el.id">Удалить</a>
+                    <b>Цена:</b> @el.car.price.ToString("c")<br />
+                    <a class="btn btn-danger" asp-controller="ShopCart"
+                       asp-action="RemoveFromCart" asp-route-id="@el.id">Удалить</a>
+                </div>
             </div>
-        </div>
-        sum += el.car.price;
-    }
-    <hr />
-    <b>Итог:</b> @sum<br />
-    <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Оплатить</a>
-</div>
+            CourtCount++;
+            sum += el.car.price;
+        }
+        <hr />
+        <b>Итог: </b>@sum ₽<br />
+        @CourtCount
+        <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Оплатить</a>
+    </div>
