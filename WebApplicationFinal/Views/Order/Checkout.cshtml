@@ -2,7 +2,7 @@
 
 
 @section NavBar {
-    @Html.Partial("NavBar", Model.SearchViewModel)
+    @await Component.InvokeAsync("NavBar")
 }
 
 <div class="col-3">

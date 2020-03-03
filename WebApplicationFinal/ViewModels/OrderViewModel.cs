@@ -14,6 +14,5 @@ namespace WebApplicationFinal.ViewModels
         public Order Order { get; set; }
         public List<ShopCartItem> listShopItems { get; set; }
 
-
     }
 }

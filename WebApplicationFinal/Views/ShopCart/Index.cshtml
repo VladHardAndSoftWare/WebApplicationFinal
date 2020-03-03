@@ -1,31 +1,39 @@
 ﻿@model ShopCartViewModel
 
 @section NavBar {
-    @Html.Partial("NavBar", Model.SearchViewModel)
+    @await Component.InvokeAsync("NavBar")
 }
-
+<br>
     <div class="container">
-        @{ int sum = 0; int CourtCount = 0;}
-        @foreach (var el in Model.ShopCart.listShopItems)
-        {
-            <br>
-            <div class="row">
-                <div class="col-md-auto">
-                    <img height="100px" src="@el.car.img" alt="@el.car.Name" />
-                </div>
-                <div class="col-sm">
-                    <b>Товар:</b> @el.car.Name<br />
+        @{
+            int sum = 0;
+            int CourtCount = 0;
 
-                    <b>Цена:</b> @el.car.price.ToString("c")<br />
-                    <a class="btn btn-danger" asp-controller="ShopCart"
-                       asp-action="RemoveFromCart" asp-route-id="@el.id">Удалить</a>
+            foreach (var el in Model.ShopCart.listShopItems)
+            {
+
+                <div class="row">
+                    <div class="col-md-auto">
+                        <img style="height: 100px; width: 90px; object-fit: cover" src="@el.car.img" alt="@el.car.Name" />
+                    </div>
+                    <div class="col-sm">
+                        <b>Товар:</b> @el.car.Name<br />
+
+                        <b>Цена:</b> @el.car.price.ToString("c")<br />
+                        <a class="btn btn-danger" asp-controller="ShopCart"
+                           asp-action="RemoveFromCart" asp-route-id="@el.id">Удалить</a>
+                    </div>
+
                 </div>
-            </div>
-            CourtCount++;
-            sum += el.car.price;
+                CourtCount++;
+                sum += el.car.price;
+                <hr>
+            }
+
         }
-        <hr />
         <b>Итог: </b>@sum ₽<br />
-        @CourtCount
+
+
         <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Оплатить</a>
     </div>
+

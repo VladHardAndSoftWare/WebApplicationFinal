@@ -48,6 +48,9 @@ namespace WebApplicationFinal
             services.AddMemoryCache();
             //использование сессий
             services.AddSession();
+
+            
+
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {

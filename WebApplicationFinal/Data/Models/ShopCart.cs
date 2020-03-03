@@ -10,14 +10,14 @@ namespace WebApplicationFinal.Data.Models
 {
     public class ShopCart
     {
+        
         private readonly AppDBContent appDBContent;
         //конструктор по умолчанию
         public ShopCart(AppDBContent appDBContent)
         {
             this.appDBContent = appDBContent;
         }
-        public string ShopCartId { get; set; }
-
+        public string ShopCartId { get; set; }    
         public List<ShopCartItem> listShopItems { get; set; }
         //функция проверяет существует ли корзина или нет
         public static ShopCart GetCart(IServiceProvider services) {
@@ -27,7 +27,7 @@ namespace WebApplicationFinal.Data.Models
 
             session.SetString("CartId" , shopCartId);
 
-            return new ShopCart(context) { ShopCartId = shopCartId };
+            return new ShopCart(context) { ShopCartId = shopCartId};
         }
         //функия отвечает за добавление товаров в корзину
         public void AddToCart(Product car) {
@@ -38,7 +38,6 @@ namespace WebApplicationFinal.Data.Models
                 price = car.price
 
             });
-
             appDBContent.SaveChanges();
         }
 

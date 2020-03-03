@@ -11,6 +11,7 @@ namespace WebApplicationFinal.Controllers
         private readonly IAllProduct _productRep;
         private readonly ShopCart _shopCart;
 
+
         public ShopCartController(IAllProduct productRep, ShopCart shopCart) {
             _productRep = productRep;
             _shopCart = shopCart;
@@ -22,6 +23,7 @@ namespace WebApplicationFinal.Controllers
             var items = _shopCart.getShopItems();
             _shopCart.listShopItems = items;
 
+          
             var obj = new ShopCartViewModel
             {
                 ShopCart = _shopCart

@@ -1,0 +1,8 @@
+﻿@model SearchViewModel
+
+@{ int CourtCount = 0;
+        foreach (var el in Model.ShopCartViewModel.ShopCart.listShopItems)
+        {
+            CourtCount++;
+        }
+}

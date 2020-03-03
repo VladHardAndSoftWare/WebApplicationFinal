@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebApplicationFinal.Data.Models
 {
-    public class NavBar
+    public class CountBacket
     {
         public List<ShopCartItem> listShopItems { get; set; }
     }

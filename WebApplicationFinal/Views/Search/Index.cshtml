@@ -1,7 +1,7 @@
 ﻿@model SearchViewModel
 
 @section NavBar {
-    @Html.Partial("NavBar", Model.SearchValue)
+    @await Component.InvokeAsync("NavBar")
 }
 
 <!DOCTYPE html>
@@ -22,11 +22,22 @@
 
     <div class="row mt-5 mb-2">
         @{
+            bool found = false;
             foreach (Product car in Model.getAllSearchCars)
             {
+                found = true;
                 @Html.Partial("AllCars", car)
+            }
+            if (found == false)
+            {
+                <div class="text-center">
+                    <h1 class="display-4">Ничего не найдено</h1>
+                    <br>
+                    <img class="img-fluid" src="~/img/NotFound.png">
+                </div>
             }
         }
     </div>
+
 </body>
 </html>

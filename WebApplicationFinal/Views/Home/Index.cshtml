@@ -1,8 +1,10 @@
 ﻿@model HomeViewModel
 
 @section NavBar {
-    @Html.Partial("NavBar", Model.SearchViewModel)
+@await Component.InvokeAsync("NavBar")
 }
+
+
 <br>
 <h2 class="Rsection-category">Лучшие товары</h2>
 <div class="row mt-5 mb-2">

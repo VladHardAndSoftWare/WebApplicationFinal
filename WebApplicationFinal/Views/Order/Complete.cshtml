@@ -1,7 +1,7 @@
 ﻿@model Order
 
 @section NavBar {
-    @Html.Partial("NavBar")
+    @await Component.InvokeAsync("NavBar")
 }
 
 <h3>@ViewBag.Message</h3>

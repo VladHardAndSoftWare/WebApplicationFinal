@@ -1,7 +1,7 @@
 ﻿@model ProductListViewModel
 
 @section NavBar {
-    @Html.Partial("NavBar", Model.SearchViewModel)
+    @await Component.InvokeAsync("NavBar")
 }
 <br>
 <h2 class="Rsection-category"> @Model.currCategory</h2>
