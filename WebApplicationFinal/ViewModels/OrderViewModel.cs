@@ -10,7 +10,6 @@ namespace WebApplicationFinal.ViewModels
 {
     public class OrderViewModel
     {
-        public SearchViewModel SearchViewModel { get; set; }
         public Order Order { get; set; }
         public List<ShopCartItem> listShopItems { get; set; }
 

@@ -6,7 +6,6 @@ namespace WebApplicationFinal.ViewModels
     {
         public ShopCart ShopCart { get; set; }
         public ShopCartItem ShopCartItem { get; set; }
-        public SearchViewModel SearchViewModel { get; set; }
 
     }
 }

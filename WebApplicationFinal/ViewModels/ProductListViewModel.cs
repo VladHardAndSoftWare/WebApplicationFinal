@@ -6,9 +6,7 @@ namespace WebApplicationFinal.ViewModels
     public class ProductListViewModel
     {
         public IEnumerable<Product> getAllCar { get; set; }
-
         public string currCategory { get; set; }
 
-        public SearchViewModel SearchViewModel { get; set; }
     }
 }
