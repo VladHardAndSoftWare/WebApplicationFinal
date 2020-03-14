@@ -20,7 +20,7 @@ namespace WebApplicationFinal.ViewComponents
         public ViewViewComponentResult Invoke()
         {
          var items = _shopCart.getShopItems();
-         _shopCart.listShopItems = items;
+            _shopCart.listShopItems = items;
             var NavBarViewModel = new NavBarViewModel
             {
                 ShopCart = _shopCart

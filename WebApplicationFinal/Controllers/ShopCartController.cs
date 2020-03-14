@@ -34,6 +34,8 @@ namespace WebApplicationFinal.Controllers
 
         public RedirectToActionResult addToCart(int id)
         {
+            //проверяем id
+            //var CheckId = _shopCart
             var item = _productRep.Product.FirstOrDefault(i => i.id == id);
             if (item != null)
             {
@@ -45,8 +47,21 @@ namespace WebApplicationFinal.Controllers
         public IActionResult RemoveFromCart(int id)
         {
             var item = _productRep.Product.FirstOrDefault(i => i.id == id);
-            ViewBag.Title = "id: " + id;
             _shopCart.RemoveFromCart(id);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult AddQuantity(int id)
+        {
+            var item = _productRep.Product.FirstOrDefault(i => i.id == id);
+            _shopCart.AddQuantity(id);
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult DelQuantity(int id)
+        {
+            var item = _productRep.Product.FirstOrDefault(i => i.id == id);
+            _shopCart.DelQuantity(id);
             return RedirectToAction("Index");
         }
 

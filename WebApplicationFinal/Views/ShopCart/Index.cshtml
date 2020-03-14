@@ -8,18 +8,25 @@
         @{
             int sum = 0;
             int CourtCount = 0;
+            List<string> parts = new List<string>();
+            string[] names = new string[100];
+            int i = 0;
 
             foreach (var el in Model.ShopCart.listShopItems)
             {
-
+                names[CourtCount] = @el.car.Name;
+                @parts.Add(new string("1")); 
                 <div class="row">
                     <div class="col-md-auto">
                         <img style="height: 100px; width: 90px; object-fit: cover" src="@el.car.img" alt="@el.car.Name" />
                     </div>
-                    <div class="col-sm">
-                        <b>Товар:</b> @el.car.Name<br />
-
-                        <b>Цена:</b> @el.car.price.ToString("c")<br />
+                    <div class="col-sm-6">
+                        <b>Товар: </b>@el.car.Name<br />
+                        <b>Колличество: </b>
+                        <a class="btn btn-primary" asp-controller="ShopCart" asp-action="DelQuantity" asp-route-id="@el.id">-</a>
+                        @el.Quantity<br />
+                        <a class="btn btn-primary" asp-controller="ShopCart" asp-action="AddQuantity" asp-route-id="@el.id">+</a>
+                        <b>Цена: </b>@el.car.price.ToString("c")<br />
                         <a class="btn btn-danger" asp-controller="ShopCart"
                            asp-action="RemoveFromCart" asp-route-id="@el.id">Удалить</a>
                     </div>

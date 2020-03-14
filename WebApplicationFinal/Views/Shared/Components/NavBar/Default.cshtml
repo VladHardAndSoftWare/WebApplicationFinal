@@ -25,7 +25,7 @@
             @{ int CourtCount = 0;
                 foreach (var el in Model.ShopCart.listShopItems)
                 {
-                    CourtCount++;
+                    CourtCount = CourtCount + 1 * el.Quantity;
                 }
             }
             

@@ -31,26 +31,50 @@ namespace WebApplicationFinal.Data.Models
         }
         //функия отвечает за добавление товаров в корзину
         public void AddToCart(Product car) {
-            appDBContent.ShopCartItem.Add(new ShopCartItem
-            {
-                ShopCartId = ShopCartId,
-                car = car,
-                price = car.price
+            var cartItem = appDBContent.ShopCartItem.SingleOrDefault(
+                c => c.ShopCartId == ShopCartId &&  c.productId == car.id);
 
-            });
+            if (cartItem == null)
+            {
+                appDBContent.ShopCartItem.Add(new ShopCartItem
+                {
+                    ShopCartId = ShopCartId,
+                    car = car,
+                    price = car.price,
+                    Quantity = 1
+                });      
+            }
+            else
+            {
+                cartItem.Quantity++;
+            }
             appDBContent.SaveChanges();
         }
 
         public void RemoveFromCart(int id)
         {
-            //Car cars = null; //сюда помещаем все машины для отображения
-            //cars = appDBContent.Car.Where(i => i..Contains(id));//сравниваем введённый текст с БД
             var obj = appDBContent.ShopCartItem.Find(id);
-            Console.WriteLine("obj: "+ obj);
             appDBContent.ShopCartItem.Remove(obj);
 
             appDBContent.SaveChanges();
         }
+        public void AddQuantity(int id)
+        {
+            var obj = appDBContent.ShopCartItem.Find(id);
+            if (obj.Quantity < 100)
+                obj.Quantity++;
+
+            appDBContent.SaveChanges();
+        }
+        public void DelQuantity(int id)
+        {
+            var obj = appDBContent.ShopCartItem.Find(id);
+            if (obj.Quantity > 1)
+                obj.Quantity--;
+
+            appDBContent.SaveChanges();
+        }
+
 
         //функция отвечающая за отображение товаров в корзине
         public List<ShopCartItem> getShopItems() {
