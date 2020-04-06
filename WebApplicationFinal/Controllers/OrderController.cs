@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SocialApp.Services;
+using System.Threading.Tasks;
 using WebApplicationFinal.Data.Interfaces;
 using WebApplicationFinal.Data.Models;
 using WebApplicationFinal.ViewModels;
@@ -38,14 +40,24 @@ namespace WebApplicationFinal.Controllers
                 }
                 if (ModelState.IsValid) {// если все поля верны и прошли про верку то выполняем это условие
                     allOrders.createOrder(order);//создание заказа если товары есть в корзине
+                    _ = SendMessage(order);
                     return RedirectToAction("Complete");
                 }
             return View(orderView);
 
         }
-        public IActionResult Complete() {
+        public IActionResult Complete() {    
             ViewBag.Message = "Заказ успешно обработан";
             return View();
+        }
+
+        public async Task<IActionResult> SendMessage(Order order)
+        {
+            EmailService emailService = new EmailService();
+            await emailService.SendEmailAsync(order.email, "Ваш заказ ожидает оплаты", order.orderTime, shopCart.listShopItems);
+            //await emailService.SendEmailAsync("enotwithpanda@yandex.ru", email, shopCart.listShopItems.ToString(), shopCart.listShopItems);
+            
+            return RedirectToAction("Index");
         }
     }
 }

@@ -18,7 +18,7 @@
                 <p>@car.shortDesc</p>
                 <p>@car.longDesc</p>
                 <p>Цена: @car.price.ToString("c")</p>
-                <a class="btn btn-outline-secondary" asp-controller="ShopCart"
+                <a class="btn btn-warning" asp-controller="ShopCart"
                    asp-action="addToCart" asp-route-id="@car.id">Добавить в корзину</a>
             </div>
         </div>

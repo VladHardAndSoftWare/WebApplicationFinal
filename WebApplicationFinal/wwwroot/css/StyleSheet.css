@@ -38,3 +38,8 @@
     .basket:hover {
         color: #ebffff;
     }
+
+/*Кнопка покупки*/
+.btn-buy{
+   color:white
+}

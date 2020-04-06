@@ -11,14 +11,20 @@
     <title>Поиск - Енот и Панда</title>
 </head>
 <body>
-    <br>
-    <div class="row justify-content-md-center">
-        <form asp-action="Index" method="post" class="form-inline">
-            <input asp-for="SearchValue" class="form-control">
-            <input class="btn btn-success" id="SearchButton" type="submit" value="Поиск" />
+    <br><br>
+    <div class="row justify-content-center">
+        <form asp-action="Index" method="post">
+
+            <div class="input-group md-form form-sm form-2 pl-0">
+                <input asp-for="SearchValue" class="form-control my-0 py-1 amber-border" type="text" placeholder="Введите ключевое слово..." aria-label="Поиск">
+                <div class="input-group-append">
+                    <span class="lighten-3" id="basic-text1">
+                        <input class="btn btn-success  fa-search text-grey" id="SearchButton" type="submit" value="Поиск" />
+                    </span>
+                </div>
+            </div>
         </form>
     </div>
-
 
     <div class="row mt-5 mb-2">
         @{
@@ -30,10 +36,10 @@
             }
             if (found == false)
             {
-                <div class="text-center">
+                <div class="mx-auto text-center">
                     <h1 class="display-4">Ничего не найдено</h1>
                     <br>
-                    <img class="img-fluid" src="~/img/NotFound.png">
+                    <img style="height: 400px;" class="img-fluid" src="~/img/NotFound.png">
                 </div>
             }
         }

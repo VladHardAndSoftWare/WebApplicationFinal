@@ -4,43 +4,61 @@
     @await Component.InvokeAsync("NavBar")
 }
 <br>
-    <div class="container">
-        @{
-            int sum = 0;
-            int CourtCount = 0;
-            List<string> parts = new List<string>();
-            string[] names = new string[100];
-            int i = 0;
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8">
+            @{
+                int sum = 0;
+                int CourtCount = 0;
+                bool found = false;
+                foreach (var el in Model.ShopCart.listShopItems)
+                {
+                    <div class="row">
+                        <div class="col-md-auto">
+                            <img style="height: 100px; width: 90px; object-fit: cover" src="@el.car.img" alt="@el.car.Name" />
+                        </div>
+                        <div class="col-sm-6">
+                            <b>Товар: </b>@el.car.Name<br>
+                            <b>Колличество: </b>
+                            <a class="btn btn-outline-primary btn-sm" asp-controller="ShopCart" asp-action="DelQuantity" asp-route-id="@el.id">-</a>
+                            @el.Quantity
+                            <a class="btn btn-outline-primary btn-sm" asp-controller="ShopCart" asp-action="AddQuantity" asp-route-id="@el.id">+</a><br />
+                            <b>Цена: </b>@el.car.price.ToString("c")<br><br>
 
-            foreach (var el in Model.ShopCart.listShopItems)
-            {
-                names[CourtCount] = @el.car.Name;
-                @parts.Add(new string("1")); 
-                <div class="row">
-                    <div class="col-md-auto">
-                        <img style="height: 100px; width: 90px; object-fit: cover" src="@el.car.img" alt="@el.car.Name" />
-                    </div>
-                    <div class="col-sm-6">
-                        <b>Товар: </b>@el.car.Name<br />
-                        <b>Колличество: </b>
-                        <a class="btn btn-primary" asp-controller="ShopCart" asp-action="DelQuantity" asp-route-id="@el.id">-</a>
-                        @el.Quantity<br />
-                        <a class="btn btn-primary" asp-controller="ShopCart" asp-action="AddQuantity" asp-route-id="@el.id">+</a>
-                        <b>Цена: </b>@el.car.price.ToString("c")<br />
-                        <a class="btn btn-danger" asp-controller="ShopCart"
-                           asp-action="RemoveFromCart" asp-route-id="@el.id">Удалить</a>
-                    </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="btn btn-danger btn-buy" asp-controller="ShopCart"
+                               asp-action="RemoveFromCart" asp-route-id="@el.id">
+                                <img src="~/img/trash.svg" alt="Удалить" style="height:1em">
+                                @*<b class="deletebutton">Удалить</b>*@
+                            </a>
+                        </div>
 
-                </div>
-                CourtCount++;
-                sum += el.car.price;
-                <hr>
+                    </div>
+                    found = true;
+                    CourtCount++;
+                    sum += el.car.price * el.Quantity;
+                    <hr>
+                }
+                if (found == false)
+                {
+        <div class="mx-auto text-center">
+            <img class="img-fluid" style="height: 400px;" src="~/img/empty-cart.svg">
+            <br>
+            <h1 class="display-4">Корзина пуста</h1>
+        </div>
+                }
             }
 
-        }
-        <b>Итог: </b>@sum ₽<br />
-
-
-        <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Оплатить</a>
+        </div>
+        <div class="col-sm-4 ">
+            <div class="alert alert-success">
+                <b>Итог: </b>
+                @sum ₽
+                <br />
+                <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Оплатить</a>
+            </div>
+        </div>
+        
     </div>
-
+</div>
