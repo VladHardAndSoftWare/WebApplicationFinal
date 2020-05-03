@@ -42,6 +42,7 @@ namespace SocialApp.Services
                 await client.AuthenticateAsync("enotwithpanda@yandex.ru", "22042017");
                 await client.SendAsync(emailMessage);
 
+
                 await client.DisconnectAsync(true);
             }
         }

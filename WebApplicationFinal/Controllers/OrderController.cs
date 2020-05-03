@@ -55,7 +55,7 @@ namespace WebApplicationFinal.Controllers
         {
             EmailService emailService = new EmailService();
             await emailService.SendEmailAsync(order.email, "Ваш заказ ожидает оплаты", order.orderTime, shopCart.listShopItems);
-            //await emailService.SendEmailAsync("enotwithpanda@yandex.ru", email, shopCart.listShopItems.ToString(), shopCart.listShopItems);
+            await emailService.SendEmailAsync("enotwithpanda@yandex.ru", order.email, order.orderTime, shopCart.listShopItems);
             
             return RedirectToAction("Index");
         }
