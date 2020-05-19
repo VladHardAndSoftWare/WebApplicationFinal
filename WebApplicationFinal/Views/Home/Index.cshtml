@@ -1,11 +1,13 @@
 ﻿@model HomeViewModel
 
 @section NavBar {
-@await Component.InvokeAsync("NavBar")
+    @await Component.InvokeAsync("NavBar")
 }
 
 
 <br>
+
+<a asp-area="Admin" asp-controller="Home" asp-action="Index">123</a>
 <h2 class="Rsection-category">Лучшие товары</h2>
 <div class="row mt-5 mb-2">
     @{
@@ -16,3 +18,6 @@
     }
 </div>
 
+@section Scripts {
+    
+}

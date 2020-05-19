@@ -6,56 +6,20 @@ namespace WebApplicationFinal.Data
 {
     public class DBObjects
     {
+
         public static void Initial(AppDBContent content)
         {
-            if (!content.Category.Any())
-                content.Category.AddRange(Categories.Select(c => c.Value));
+          // if (!content.Category.Any())
+          //      content.Category.AddRange(Categories.Select(c => c.Value));
 
-            if (!content.Product.Any())
-            {
-                content.AddRange(
-                    new Product
-                    {
-                        Name = "Кружка 'В Питере - пить'",
-                        shortDesc = "",
-                        longDesc = "",
-                        img = "https://sun9-22.userapi.com/c851532/v851532593/d9bca/JPWnY8O51U4.jpg",
-                        price = 400,
-                        isFavorite = true,
-                        availiible = true,
-                        Category = Categories["Электромобили"]
-                    },
-                     new Product
-                     {
-                         Name = "Tesla",
-                         shortDesc = "",
-                         longDesc = "",
-                         img = "/img/Tesla.jpg",
-                         price = 45000,
-                         isFavorite = true,
-                         availiible = true,
-                         Category = Categories["Электромобили"]
-                     },
-                      new Product
-                      {
-                          Name = "Tesla",
-                          shortDesc = "",
-                          longDesc = "",
-                          img = "/img/Tesla.jpg",
-                          price = 45000,
-                          isFavorite = true,
-                          availiible = true,
-                          Category = Categories["Электромобили"]
-                      }
-                );
-                // сохренение изменений в базе данных
-                content.SaveChanges();
-            }
+          //  if (!content.Product.Any())
+          //  {
+          //  }
         }
 
 
-        private static Dictionary<string, Category> category;
-        public static Dictionary<string, Category> Categories
+        //private static Dictionary<string, Category> category;
+        /*public static Dictionary<string, Category> Categories
         {
             get
             {
@@ -73,6 +37,6 @@ namespace WebApplicationFinal.Data
 
                 return category;
             }
-        }
+        }*/
     }
 }

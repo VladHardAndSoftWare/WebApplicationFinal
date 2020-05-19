@@ -1,0 +1,72 @@
+﻿@model WebApplicationFinal.Data.Models.Product
+
+@{
+    ViewData["Title"] = "Создать Новый товар";
+}
+
+@section NavBar {
+    @await Component.InvokeAsync("NavBar")
+}
+
+<h1>Создать новый товар</h1>
+
+@*<h4>Product</h4>*@
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="shortDesc" class="control-label"></label>
+                <input asp-for="shortDesc" class="form-control" />
+                <span asp-validation-for="shortDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="longDesc" class="control-label"></label>
+                <input asp-for="longDesc" class="form-control" />
+                <span asp-validation-for="longDesc" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="img" class="control-label"></label>
+                <input asp-for="img" class="form-control" />
+                <span asp-validation-for="img" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="isFavorite" /> @Html.DisplayNameFor(model => model.isFavorite)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="availiible" /> @Html.DisplayNameFor(model => model.availiible)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="categoryID" class="control-label"></label>
+                <select asp-for="categoryID" class="form-control" asp-items="ViewBag.categoryID"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Обратно к списку</a>
+</div>
+
+@section Scripts {
+
+}
+

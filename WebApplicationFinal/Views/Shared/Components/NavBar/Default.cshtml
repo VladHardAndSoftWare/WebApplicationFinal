@@ -21,7 +21,9 @@
                         <a class="dropdown-item" asp-controller="Product" asp-action="list" asp-route-category="notebook">Блокноты</a>
                     </div>
                 </li>
+                <partial name="_LoginPartial" class="nav-link"/>
             </ul>
+            
             @{ int CourtCount = 0;
                 foreach (var el in Model.ShopCart.listShopItems)
                 {

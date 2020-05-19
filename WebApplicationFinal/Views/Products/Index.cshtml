@@ -1,0 +1,86 @@
+﻿@model IEnumerable<WebApplicationFinal.Data.Models.Product>
+
+@{
+    ViewData["Title"] = "Товары";
+}
+
+@section NavBar {
+    @await Component.InvokeAsync("NavBar")
+}
+
+<h1>Товары</h1>
+
+<p>
+    <a asp-action="Create">Создать товар</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Имя
+            </th>
+            <th>
+                Краткое описание
+            </th>
+            <th>
+                Длинное описание
+            </th>
+            <th>
+                Ссылка на изображение
+            </th>
+            <th>
+                Цена
+            </th>
+            <th>
+                Избранный товар
+            </th>
+            <th>
+                Доступность товара
+            </th>
+            <th>
+                Категория товара
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.shortDesc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.longDesc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.img)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isFavorite)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.availiible)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.id)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.id">Изменить</a> |
+                    <a asp-action="Details" asp-route-id="@item.id">Детли</a> |
+                    <a asp-action="Delete" asp-route-id="@item.id">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+
+}

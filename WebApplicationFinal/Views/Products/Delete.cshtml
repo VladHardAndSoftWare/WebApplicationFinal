@@ -1,0 +1,78 @@
+﻿@model WebApplicationFinal.Data.Models.Product
+
+@{
+    ViewData["Title"] = "Удаление товара";
+}
+
+@section NavBar {
+    @await Component.InvokeAsync("NavBar")
+}
+
+<h1>Удаление</h1>
+
+<h3>Вы уверены что хотите удалить это?</h3>
+<div>
+    @*<h4>Product</h4>*@
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.shortDesc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.shortDesc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.longDesc)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.longDesc)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.img)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.img)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.isFavorite)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.isFavorite)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.availiible)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.availiible)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Category.id)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Обратно к списку</a>
+    </form>
+</div>
+
+
+@section Scripts {
+
+}

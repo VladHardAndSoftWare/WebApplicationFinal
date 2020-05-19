@@ -42,11 +42,11 @@
                 }
                 if (found == false)
                 {
-        <div class="mx-auto text-center">
-            <img class="img-fluid" style="height: 400px;" src="~/img/empty-cart.svg">
-            <br>
-            <h1 class="display-4">Корзина пуста</h1>
-        </div>
+                    <div class="mx-auto text-center">
+                        <img class="img-fluid" style="height: 400px;" src="~/img/empty-cart.svg">
+                        <br>
+                        <h1 class="display-4">Корзина пуста</h1>
+                    </div>
                 }
             }
 
@@ -59,6 +59,10 @@
                 <a class="btn btn-success" asp-controller="Order" asp-action="Checkout">Оплатить</a>
             </div>
         </div>
-        
+
     </div>
 </div>
+
+@section Scripts {
+
+}

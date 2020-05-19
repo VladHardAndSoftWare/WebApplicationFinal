@@ -14,6 +14,12 @@ using WebApplicationFinal.Data.mocks;
 using WebApplicationFinal.Data.Models;
 using WebApplicationFinal.Data.Repository;
 
+
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Identity.UI.Services;
+
 namespace WebApplicationFinal
 {
     public class Startup
@@ -33,11 +39,16 @@ namespace WebApplicationFinal
         {
             //получение строки с указанием параметров базы данных из DBSetting.json
             services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
-            
+
+            // добавление сервисов Idenity
+            //services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //            .AddEntityFrameworkStores<AppDBContent>();
+
             //передача в интерфейсы данных из БД
             services.AddTransient<IAllProduct, ProductRepository>();
             services.AddTransient<IProductCategory, CategoryRepository>();
             services.AddTransient<IAllOrder, OrdersRepository>();
+            services.AddTransient<IAllUsers, UsersRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             //сервис позволяющий разделять корзины для разных пользователей
@@ -49,7 +60,36 @@ namespace WebApplicationFinal
             //использование сессий
             services.AddSession();
 
-            
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie(options => //CookieAuthenticationOptions
+        {
+            options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+        });
+
+        //    services.AddIdentity<IdentityUser, IdentityRole>()
+        ////// services.AddDefaultIdentity<IdentityUser>()
+        //.AddEntityFrameworkStores<AppDBContent>()
+        //.AddDefaultTokenProviders();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+        .AddRazorPagesOptions(options =>
+        {
+            options.AllowAreas = true;
+            options.Conventions.AuthorizeAreaFolder("Identity", "/Account/Manage");
+            options.Conventions.AuthorizeAreaPage("Identity", "/Account/Logout");
+        });
+
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = $"/Identity/Account/Login";
+                options.LogoutPath = $"/Identity/Account/Logout";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
+
+            // using Microsoft.AspNetCore.Identity.UI.Services;
+            //services.AddSingleton<IEmailSender, EmailSender>();
+
+
 
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -59,6 +99,8 @@ namespace WebApplicationFinal
             app.UseStatusCodePages();//использования статуса страницы
             app.UseStaticFiles();
             app.UseSession();
+
+
             //app.UseMvcWithDefaultRoute();//маршрутизация
             app.UseMvc(routes =>
             { //собственная маршрутизация
@@ -70,7 +112,7 @@ namespace WebApplicationFinal
             using (var scope = app.ApplicationServices.CreateScope())
             {
                 AppDBContent content = scope.ServiceProvider.GetRequiredService<AppDBContent>();
-                DBObjects.Initial(content);
+                //DBObjects.Initial(content);
             }   
         }
     }
