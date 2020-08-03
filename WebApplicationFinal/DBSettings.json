@@ -1,6 +1,8 @@
 //строка для подключения к базе данных
 {
   "ConnectionStrings": {
+    //"DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=TestDB;Trusted_Connection=True;MultipleActiveResultSets=true",
+    //"DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=MyDB;Trusted_Connection=True;MultipleActiveResultSets=true"
     "DefaultConnection": "Data Source=31.31.196.80;Database=u1035877_DB;Integrated Security=False;User ID=u1035877_vlad;Password=iDP_AX0Z"
   }
 

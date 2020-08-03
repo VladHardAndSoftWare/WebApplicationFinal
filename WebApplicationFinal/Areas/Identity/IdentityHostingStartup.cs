@@ -20,8 +20,9 @@ namespace WebApplicationFinal.Areas.Identity
                     options.UseSqlServer(
                         context.Configuration.GetConnectionString("WebApplicationFinalContextConnection")));
 
-                services.AddDefaultIdentity<WebApplicationFinalUser>()
-                    .AddEntityFrameworkStores<WebApplicationFinalContext>();
+                //services.AddDefaultIdentity<WebApplicationFinalUser>()
+                //    .AddEntityFrameworkStores<WebApplicationFinalContext>();
+
             });
         }
     }

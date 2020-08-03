@@ -32,6 +32,7 @@ namespace WebApplicationFinal.Areas.Identity.Pages.Account.Manage
         {
             [Required]
             [DataType(DataType.Password)]
+            [Display(Name = "Введите пароль для подтерждения действия")]
             public string Password { get; set; }
         }
 
@@ -62,7 +63,7 @@ namespace WebApplicationFinal.Areas.Identity.Pages.Account.Manage
             {
                 if (!await _userManager.CheckPasswordAsync(user, Input.Password))
                 {
-                    ModelState.AddModelError(string.Empty, "Password not correct.");
+                    ModelState.AddModelError(string.Empty, "Неверный пароль.");
                     return Page();
                 }
             }
@@ -76,7 +77,7 @@ namespace WebApplicationFinal.Areas.Identity.Pages.Account.Manage
 
             await _signInManager.SignOutAsync();
 
-            _logger.LogInformation("User with ID '{UserId}' deleted themselves.", userId);
+            _logger.LogInformation("Пользователь с ID '{UserId}' удалён.", userId);
 
             return Redirect("~/");
         }

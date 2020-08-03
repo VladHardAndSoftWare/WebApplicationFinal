@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApplicationFinal.Areas.Identity.Data;
+using Microsoft.AspNetCore.Identity.UI.Services;
+
 
 namespace WebApplicationFinal.Areas.Identity.Pages.Account.Manage
 {
@@ -27,9 +28,10 @@ namespace WebApplicationFinal.Areas.Identity.Pages.Account.Manage
             _signInManager = signInManager;
             _emailSender = emailSender;
         }
-
+        [Display(Name = "Имя пользователя")]
         public string Username { get; set; }
 
+        
         public bool IsEmailConfirmed { get; set; }
 
         [TempData]
@@ -40,12 +42,13 @@ namespace WebApplicationFinal.Areas.Identity.Pages.Account.Manage
 
         public class InputModel
         {
+            [Display(Name = "Электронная почта")]
             [Required]
             [EmailAddress]
             public string Email { get; set; }
 
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "Номер телефона")]
             public string PhoneNumber { get; set; }
         }
 
@@ -110,7 +113,7 @@ namespace WebApplicationFinal.Areas.Identity.Pages.Account.Manage
             }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "Ваш Профиль был обновлён";
             return RedirectToPage();
         }
 
@@ -138,10 +141,10 @@ namespace WebApplicationFinal.Areas.Identity.Pages.Account.Manage
                 protocol: Request.Scheme);
             await _emailSender.SendEmailAsync(
                 email,
-                "Confirm your email",
-                $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                "Подтверждение Email",
+                $"Перейдите по ссылке что бы подтвердить Вашу Email <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>ссылка</a>.");
 
-            StatusMessage = "Verification email sent. Please check your email.";
+            StatusMessage = "Письмо с подтверждением почты отправлено. Проверьте Email.";
             return RedirectToPage();
         }
     }

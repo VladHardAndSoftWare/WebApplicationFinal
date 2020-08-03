@@ -29,7 +29,7 @@ namespace WebApplicationFinal.Data.Models
 
         [Display(Name = "Номер телефона")]
         [DataType(DataType.PhoneNumber)]
-        [StringLength(8)]
+        [StringLength(11)]
         [Required(ErrorMessage = "Длина телефона более 7 знаков")]
         public string phone { get; set; }
 

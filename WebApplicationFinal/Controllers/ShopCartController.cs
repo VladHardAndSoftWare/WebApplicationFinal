@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Stripe;
 using System.Linq;
 using WebApplicationFinal.Data.Interfaces;
 using WebApplicationFinal.Data.Models;
@@ -63,6 +64,33 @@ namespace WebApplicationFinal.Controllers
             var item = _productRep.Product.FirstOrDefault(i => i.id == id);
             _shopCart.DelQuantity(id);
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Charge(string stripeEmail, string stripeToken)
+        {
+            var customers = new CustomerService();
+            var charges = new ChargeService();
+
+            var customer = customers.Create(new CustomerCreateOptions
+            {
+                Email = stripeEmail,
+                Source = stripeToken
+            });
+
+            var charge = charges.Create(new ChargeCreateOptions
+            {
+                Description = "TestPayment",
+                Currency = "usd",
+                Customer = customer.Id
+            });
+
+            if (charge.Status == "succeeded")
+            {
+                string BalanceTransactionId = charge.BalanceTransactionId;
+                return View();
+            }
+
+            return View();
         }
 
     }

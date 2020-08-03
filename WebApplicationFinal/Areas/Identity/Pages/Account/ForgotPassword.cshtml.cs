@@ -16,7 +16,7 @@ namespace WebApplicationFinal.Areas.Identity.Pages.Account
     public class ForgotPasswordModel : PageModel
     {
         private readonly UserManager<WebApplicationFinalUser> _userManager;
-        private readonly IEmailSender _emailSender;
+        public readonly IEmailSender _emailSender;
 
         public ForgotPasswordModel(UserManager<WebApplicationFinalUser> userManager, IEmailSender emailSender)
         {

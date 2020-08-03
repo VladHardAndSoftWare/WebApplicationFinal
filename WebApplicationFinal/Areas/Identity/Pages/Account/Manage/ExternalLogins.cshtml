@@ -5,6 +5,10 @@
     ViewData["ActivePage"] = ManageNavPages.ExternalLogins;
 }
 
+@section NavBar {
+    @await Component.InvokeAsync("NavBar")
+}
+
 <partial name="_StatusMessage" for="StatusMessage" />
 @if (Model.CurrentLogins?.Count > 0)
 {
