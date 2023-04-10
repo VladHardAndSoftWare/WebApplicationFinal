@@ -13,7 +13,7 @@
 ---
 ### Есть внутрений поиск
 
-![image](https://user-images.githubusercontent.com/42782084/231008609-3c428127-2b15-4461-b32c-1cb98eebdb1b.png)
+![image](https://user-images.githubusercontent.com/42782084/231009238-7987fd9c-b29f-4889-8417-eaa9df18b074.png)
 
 ### Релизована корзина
 
